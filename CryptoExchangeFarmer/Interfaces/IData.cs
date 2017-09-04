@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using CryptoExchangeFarmer.Models;
 
 namespace CryptoExchangeFarmer.Interfaces
 {
     public interface IData
     {
-        IQueryable<Exchange> GetConfiguredExchanges();
+        List<Exchange> GetConfiguredExchanges();
+        void SetConfiguredExchanges(List<Exchange> exchanges);
     }
 }

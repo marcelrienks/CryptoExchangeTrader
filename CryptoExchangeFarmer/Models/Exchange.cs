@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CryptoExchangeFarmer.Models
+﻿namespace CryptoExchangeFarmer.Models
 {
     public class Exchange
     {
-        public CurrencyPair CurrencyPair { get; set; }
+        public string Name { get; set; }
     }
 }

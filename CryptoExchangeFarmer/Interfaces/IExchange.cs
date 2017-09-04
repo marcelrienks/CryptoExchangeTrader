@@ -4,8 +4,8 @@ using System.Text;
 
 namespace CryptoExchangeFarmer.Interfaces
 {
-    public class IExchange
+    public interface IExchange
     {
-        public object GetTickers;
+        object GetTickers();
     }
 }
