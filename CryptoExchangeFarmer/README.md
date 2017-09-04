@@ -1,2 +1,0 @@
-# CryptoExchangeFarmer
-Initialise
