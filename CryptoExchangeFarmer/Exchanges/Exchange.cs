@@ -1,11 +1,13 @@
-﻿using CryptoExchangeFarmer.Models;
+﻿using CryptoExchangeFarmer.Handlers;
 
 namespace CryptoExchangeFarmer.Exchanges
 {
     public abstract class Exchange
     {
-        public abstract void Initialise(ExchangeConfiguration exchangeConfiguration);
-        public abstract object GetTickers();
+        public abstract void Initialise(IServicesHandler servicesHandler);
+        public abstract object GetInvestedCoins();
+        public abstract object GetTickersForCoins();
+        public abstract object GetOpenTrades();
 
         public void Farm()
         {

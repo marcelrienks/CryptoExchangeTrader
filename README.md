@@ -72,9 +72,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 # //TODO:
 ## Logic Flow
 0. Buy BTC manually on the Exchange to be used as _Seed_
-1. Get Coins
-2. Get Prices for Coins
-3. Get My Trades
+1. Get prices configured currency pairs (this allows you to have more coins invested in an exchange than the bot will trade in)
+2. Get My Coin balances for configured currency pairs
+3. Get My Trades for configured currency pairs
 4. Check for _UnExecuted orders_
     * If _UnExecuted orders_ exist  
     TODO: Think of logic for existing orders

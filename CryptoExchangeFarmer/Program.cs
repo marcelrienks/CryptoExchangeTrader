@@ -48,12 +48,38 @@ namespace CryptoExchangeFarmer
                 {
                     // Using reflection, instantiate configured exchange
                     var initialisedExchange = (Exchange)Activator.CreateInstance(Type.GetType($"CryptoExchangeFarmer.Exchanges.{exchangeConfiguration.Name}"));
-                    initialisedExchange.Initialise(exchangeConfiguration);
+                    initialisedExchange.Initialise(new ServicesHandler(exchangeConfiguration.ApiUrl));
                     exchanges.Add(initialisedExchange);
                 }
             }
 
             return exchanges;
+        }
+
+        /// <summary>
+        /// This method will generate a new ExchangeConfiguration json file with dummy data.
+        /// Set a breakpoint in the beginning of the main thread, and call this function through the immediate window
+        /// </summary>
+        private static void GenerateDummyExchangeConfiguration()
+        {
+            var data = new DataStore(ConfigurationManager.AppSettings["Exchanges"], ConfigurationManager.AppSettings["Logs"]);
+            data.SetExchangeConfigurations(new List<Models.ExchangeConfiguration>() {
+                new Models.ExchangeConfiguration()
+                {
+                    Name = "Dummy",
+                    ApiUrl = "www",
+                    Custom = new Dictionary<string, string>()
+                    {
+                        { "header1", "value" },
+                        { "header2", "value" }
+                    },
+                    CoinPairs = new List<string>()
+                    {
+                        "coin",
+                        "coin"
+                    }
+                }
+            });
         }
     }
 }

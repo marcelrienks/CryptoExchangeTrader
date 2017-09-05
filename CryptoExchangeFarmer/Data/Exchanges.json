@@ -1,1 +1,12 @@
-[{"Name":"Bitfinex"}]
+[
+  {
+    "Name": "Bitfinex",
+    "ApiUrl": "https://api.bitfinex.com/v1/",
+    "ApiHeaders": {},
+    "Custom": {
+      "ApiKey": "PnNcvbFeO3vXrNDdgyEC54AUWD4SzuaecOvD3EUMiuI",
+      "ApiSecret": "7ADEox6o0GoqttIA2rokCmvxwdZtgxU4rqG2Sycb6kz"
+    },
+    "CoinPairs": [ "coin", "coin" ]
+  }
+]
