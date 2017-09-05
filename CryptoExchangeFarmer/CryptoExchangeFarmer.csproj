@@ -47,12 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataStore.cs" />
+    <Compile Include="Models\Enums.cs" />
     <Compile Include="Exchanges\Bitfinex.cs" />
+    <Compile Include="Handlers\ExceptionHandler.cs" />
     <Compile Include="Handlers\FarmingHandler.cs" />
-    <Compile Include="Interfaces\IData.cs" />
-    <Compile Include="Interfaces\IExchange.cs" />
+    <Compile Include="Handlers\LoggingHandler.cs" />
+    <Compile Include="Data\IDataStore.cs" />
+    <Compile Include="Exchanges\Exchange.cs" />
     <Compile Include="Models\CurrencyPair.cs" />
-    <Compile Include="Models\Exchange.cs" />
+    <Compile Include="Models\ExchangeConfiguration.cs" />
     <Compile Include="Models\Tickers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

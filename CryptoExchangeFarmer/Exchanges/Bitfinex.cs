@@ -1,11 +1,22 @@
 ﻿using System;
-using CryptoExchangeFarmer.Interfaces;
+using CryptoExchangeFarmer.Models;
 
 namespace CryptoExchangeFarmer.Exchanges
 {
-    public class Bitfinex : IExchange
+    public class Bitfinex : Exchange
     {
-        public object GetTickers()
+        private ExchangeConfiguration _exchangeConfiguration;
+
+        /// <summary>
+        /// Initialise a Bitfinex Exchange
+        /// </summary>
+        /// <param name="exchangeConfiguration"></param>
+        public override void Initialise(ExchangeConfiguration exchangeConfiguration)
+        {
+            _exchangeConfiguration = exchangeConfiguration;
+        }
+
+        public override object GetTickers()
         {
             throw new NotImplementedException();
         }

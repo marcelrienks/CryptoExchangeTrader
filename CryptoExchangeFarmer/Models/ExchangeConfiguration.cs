@@ -1,6 +1,6 @@
 ﻿namespace CryptoExchangeFarmer.Models
 {
-    public class Exchange
+    public class ExchangeConfiguration
     {
         public string Name { get; set; }
     }

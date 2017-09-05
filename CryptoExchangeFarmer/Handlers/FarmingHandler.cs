@@ -1,32 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CryptoExchangeFarmer.Interfaces;
+﻿using System.Collections.Generic;
+using CryptoExchangeFarmer.Exchanges;
 
 namespace CryptoExchangeFarmer.Handlers
 {
     public class FarmingHandler
     {
-        private IExchange _exchange;
+        private List<Exchange> _exchanges;
 
-        public FarmingHandler(IExchange exchange)
+        public FarmingHandler(List<Exchange> exchanges)
         {
-            _exchange = exchange;
+            _exchanges = exchanges;
         }
 
-        public void Inspect()
-        {
-
-        }
-
+        /// <summary>
+        /// Run through each configured Exchange, and start Farming
+        /// </summary>
         public void Farm()
         {
-
-        }
-
-        public void Reset()
-        {
-
+            foreach (var exchange in _exchanges)
+            {
+                exchange.Farm();
+            }
         }
     }
 }
