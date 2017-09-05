@@ -1,10 +1,10 @@
-# Crypto Excahnge Farmer
+# Crypto Exchange Farmer
 
 [![Build status](https://ci.appveyor.com/api/projects/status/tdt1ejffp8wyl8de?svg=true)](https://ci.appveyor.com/project/marcelrienks/cryptoexchangefarmer)
 
 **_NOTE: this project is very much under development._**
 
-Crypto Excahnge Farmer is a Crypto Currency Farming bot.  
+Crypto Exchange Farmer is a Crypto Currency Farming bot.  
 
 This tool will use configuration information that you specify to automate trades on supported exchanges. The idea with this bot is to make constant small trades, where the bot buys low and sells as high as it can, and in so doing constantly farm small little profits.  
 
