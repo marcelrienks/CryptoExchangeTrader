@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/tdt1ejffp8wyl8de?svg=true)](https://ci.appveyor.com/project/marcelrienks/cryptoexchangefarmer)
+
 # Crypto Excahnge Farmer
 
 **_NOTE: this project is very much under development._**
