@@ -23,7 +23,10 @@ namespace CryptoExchangeFarmer
                 var exchanges = InitialiseExchanges(data);
 
                 // Start Farming
-                new FarmingHandler(exchanges).Farm();
+                foreach (var exchange in exchanges)
+                {
+                    new FarmingHandler(exchange).Farm(); 
+                }
             }
             catch (Exception ex)
             {
@@ -47,8 +50,11 @@ namespace CryptoExchangeFarmer
                 foreach (var exchangeConfiguration in exchangeConfigurations)
                 {
                     // Using reflection, instantiate configured exchange
-                    var initialisedExchange = (Exchange)Activator.CreateInstance(Type.GetType($"CryptoExchangeFarmer.Exchanges.{exchangeConfiguration.Name}"));
-                    initialisedExchange.Initialise(new ServicesHandler(exchangeConfiguration.ApiUrl, exchangeConfiguration.DefaultApiHeaders));
+                    var constructorParams = new object[] { exchangeConfiguration, new ServicesHandler(exchangeConfiguration.ApiUrl, exchangeConfiguration.DefaultApiHeaders) };
+                    var type = Type.GetType($"CryptoExchangeFarmer.Exchanges.{exchangeConfiguration.Name}");
+                    var initialisedExchange = (Exchange)Activator.CreateInstance(type, constructorParams);
+
+                    // Add concrete exchange to list
                     exchanges.Add(initialisedExchange);
                 }
             }

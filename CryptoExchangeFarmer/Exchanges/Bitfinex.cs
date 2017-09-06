@@ -1,60 +1,35 @@
 ﻿using System;
 using CryptoExchangeFarmer.Handlers;
+using CryptoExchangeFarmer.Models;
 
 namespace CryptoExchangeFarmer.Exchanges
 {
     public class Bitfinex : Exchange
     {
-        private IServicesHandler _servicesHandler;
-
-        #region Public
-
         /// <summary>
         /// Initialise a Bitfinex Exchange
         /// </summary>
         /// <param name="exchangeConfiguration"></param>
-        public override void Initialise(IServicesHandler servicesHandler)
+        protected Bitfinex(ExchangeConfiguration exchangeConfiguration, IServicesHandler servicesHandler) : base(exchangeConfiguration, servicesHandler)
         {
-            _servicesHandler = servicesHandler;
+
         }
 
-        public override object GetInvestedCoins()
+        #region Public
+
+        public override object GetTickersForConfiguredCoins()
         {
             throw new NotImplementedException();
         }
 
-        public override object GetTickersForCoins()
+        public override object GetInvestedCoinBalances()
         {
-            // Call api to get tickers
-            var path = "";
-            _servicesHandler.Get(path);
-
-            // Convert Bitfinex tickers to model
-            return "";
+            throw new NotImplementedException();
         }
 
         public override object GetOpenTrades()
         {
             throw new NotImplementedException();
-        }
-
-        #endregion
-
-        #region Private
-
-        //TODO: Complete this
-        //private string GetHexHashSignature(string payload)
-        //{
-        //    HMACSHA384 hmac = new HMACSHA384(Encoding.UTF8.GetBytes(_apiSecret));
-        //    byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
-        //    return BitConverter.ToString(hash).Replace("-", "").ToLower();
-        //}
-
-        private static long UnixTimeStampUtc()
-        {
-            var currentTime = DateTime.Now.ToUniversalTime();
-            var unixEpoch = new DateTime(1970, 1, 1);
-            return (long)(currentTime.Subtract(unixEpoch)).TotalSeconds;
         }
 
         #endregion

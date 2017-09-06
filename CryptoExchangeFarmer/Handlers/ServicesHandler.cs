@@ -29,7 +29,7 @@ namespace CryptoExchangeFarmer.Handlers
         /// </summary>
         /// <param name="apiUrl">the base url for the api</param>
         /// <param name="defaultHeaders">a dictionary of header names and values</param>
-        public ServicesHandler(string apiUrl, Dictionary<string, string> defaultHeaders = null)
+        public ServicesHandler(string apiUrl, Dictionary<string, string> defaultHeaders)
         {
             _client = new HttpClient { BaseAddress = new Uri(apiUrl) };
             _client.DefaultRequestHeaders.Accept.Clear();

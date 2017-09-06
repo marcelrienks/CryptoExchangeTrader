@@ -1,37 +1,25 @@
 ﻿using CryptoExchangeFarmer.Handlers;
+using CryptoExchangeFarmer.Models;
 
 namespace CryptoExchangeFarmer.Exchanges
 {
     public abstract class Exchange
     {
-        public abstract void Initialise(IServicesHandler servicesHandler);
-        public abstract object GetInvestedCoins();
-        public abstract object GetTickersForCoins();
+        protected ExchangeConfiguration _exchangeConfiguration;
+        IServicesHandler _servicesHandler;
+
+        protected Exchange(ExchangeConfiguration exchangeConfiguration, IServicesHandler servicesHandler)
+        {
+            _exchangeConfiguration = exchangeConfiguration;
+            _servicesHandler = servicesHandler;
+        }
+
+        #region MyRegion
+
+        public abstract object GetTickersForConfiguredCoins();
+        public abstract object GetInvestedCoinBalances();
         public abstract object GetOpenTrades();
 
-        public void Farm()
-        {
-            //TODO: Complete this
-        }
-
-        public void Inspect()
-        {
-            //TODO: Complete this
-        }
-
-        public void Buy()
-        {
-            //TODO: Complete this
-        }
-
-        public void Sell()
-        {
-            //TODO: Complete this
-        }
-
-        public void Reset()
-        {
-            //TODO: Complete this
-        }
+        #endregion
     }
 }
