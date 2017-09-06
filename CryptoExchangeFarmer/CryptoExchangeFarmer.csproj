@@ -49,6 +49,7 @@
     <Compile Include="Data\DataStore.cs" />
     <Compile Include="Handlers\IServicesHandler.cs" />
     <Compile Include="Handlers\ServicesHandler.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Exchanges\Bitfinex.cs" />
     <Compile Include="Handlers\ExceptionHandler.cs" />

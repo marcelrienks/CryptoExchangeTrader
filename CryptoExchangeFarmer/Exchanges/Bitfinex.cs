@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
-using System.Text;
 using CryptoExchangeFarmer.Handlers;
 
 namespace CryptoExchangeFarmer.Exchanges
@@ -51,6 +49,13 @@ namespace CryptoExchangeFarmer.Exchanges
         //    byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
         //    return BitConverter.ToString(hash).Replace("-", "").ToLower();
         //}
+
+        private static long UnixTimeStampUtc()
+        {
+            var currentTime = DateTime.Now.ToUniversalTime();
+            var unixEpoch = new DateTime(1970, 1, 1);
+            return (long)(currentTime.Subtract(unixEpoch)).TotalSeconds;
+        }
 
         #endregion
     }

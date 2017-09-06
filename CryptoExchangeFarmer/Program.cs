@@ -48,7 +48,7 @@ namespace CryptoExchangeFarmer
                 {
                     // Using reflection, instantiate configured exchange
                     var initialisedExchange = (Exchange)Activator.CreateInstance(Type.GetType($"CryptoExchangeFarmer.Exchanges.{exchangeConfiguration.Name}"));
-                    initialisedExchange.Initialise(new ServicesHandler(exchangeConfiguration.ApiUrl));
+                    initialisedExchange.Initialise(new ServicesHandler(exchangeConfiguration.ApiUrl, exchangeConfiguration.DefaultApiHeaders));
                     exchanges.Add(initialisedExchange);
                 }
             }
@@ -68,7 +68,7 @@ namespace CryptoExchangeFarmer
                 {
                     Name = "Dummy",
                     ApiUrl = "www",
-                    Custom = new Dictionary<string, string>()
+                    CustomApiSettings = new Dictionary<string, string>()
                     {
                         { "header1", "value" },
                         { "header2", "value" }

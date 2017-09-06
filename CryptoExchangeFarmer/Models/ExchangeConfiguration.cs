@@ -8,8 +8,8 @@ namespace CryptoExchangeFarmer.Models
 
         // API
         public string ApiUrl { get; set; }
-        public Dictionary<string, string> ApiHeaders { get; set; }
-        public Dictionary<string, string> Custom { get; set; }
+        public Dictionary<string, string> DefaultApiHeaders { get; set; }
+        public Dictionary<string, string> CustomApiSettings { get; set; }
 
         // Coins
         public List<string> CoinPairs { get; set; }
