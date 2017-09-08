@@ -7,7 +7,7 @@ namespace CryptoExchangeTrader.Data
     public interface IDataStore
     {
         void Log(LogLevel level, string message, Exception exception = null);
-        List<ExchangeConfiguration> GetExchangeConfigurations();
-        void SetExchangeConfigurations(List<ExchangeConfiguration> exchanges);
+        List<TradingConfiguration> GetTradeingConfigurations();
+        void SetTradingConfigurations(List<TradingConfiguration> exchanges);
     }
 }

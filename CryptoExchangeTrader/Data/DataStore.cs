@@ -50,34 +50,34 @@ namespace CryptoExchangeTrader.Data
         }
 
         /// <summary>
-        /// Get configured Exchanges from Data Store
+        /// Get configured trading from Data Store
         /// </summary>
-        /// <returns>list of exchange configurations</returns>
-        public List<ExchangeConfiguration> GetExchangeConfigurations()
+        /// <returns>list of trading configurations</returns>
+        public List<TradingConfiguration> GetTradeingConfigurations()
         {
-            List<ExchangeConfiguration> exchanges;
+            List<TradingConfiguration> tradingConfigurations;
 
             // Write data to file
             using (var file = File.OpenText(_exchangesLocation))
             {
                 var serializer = new JsonSerializer();
-                exchanges = (List<ExchangeConfiguration>)serializer.Deserialize(file, typeof(List<ExchangeConfiguration>));
+                tradingConfigurations = (List<TradingConfiguration>)serializer.Deserialize(file, typeof(List<TradingConfiguration>));
             }
 
-            return exchanges;
+            return tradingConfigurations;
         }
 
         /// <summary>
-        /// Set configured Exchanges in Data Store
+        /// Set configured trading into Data Store
         /// </summary>
-        /// <param name="exchanges">list of exchange configurations</param>
-        public void SetExchangeConfigurations(List<ExchangeConfiguration> exchanges)
+        /// <param name="tradingConfigurations">list of trading configurations</param>
+        public void SetTradingConfigurations(List<TradingConfiguration> tradingConfigurations)
         {
             // Read data from file
             using (var file = File.CreateText(_exchangesLocation))
             {
                 var serializer = new JsonSerializer();
-                serializer.Serialize(file, exchanges);
+                serializer.Serialize(file, tradingConfigurations);
             }
         }
     }
