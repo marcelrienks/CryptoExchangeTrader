@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CryptoExchangeFarmer.Models;
+using CryptoExchangeTrader.Models;
 
-namespace CryptoExchangeFarmer.Data
+namespace CryptoExchangeTrader.Data
 {
     public interface IDataStore
     {

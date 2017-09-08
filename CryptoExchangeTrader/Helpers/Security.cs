@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CryptoExchangeFarmer.Helpers
+namespace CryptoExchangeTrader.Helpers
 {
     public static class Security
     {

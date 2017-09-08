@@ -1,7 +1,7 @@
-﻿using CryptoExchangeFarmer.Handlers;
-using CryptoExchangeFarmer.Models;
+﻿using CryptoExchangeTrader.Handlers;
+using CryptoExchangeTrader.Models;
 
-namespace CryptoExchangeFarmer.Exchanges
+namespace CryptoExchangeTrader.Exchanges
 {
     public abstract class Exchange
     {
@@ -19,6 +19,7 @@ namespace CryptoExchangeFarmer.Exchanges
         public abstract object GetTickersForConfiguredCoins();
         public abstract object GetInvestedCoinBalances();
         public abstract object GetOpenTrades();
+        public abstract object GetLastTradesForConfiguredCoins();
 
         #endregion
     }

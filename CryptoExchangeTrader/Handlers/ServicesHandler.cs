@@ -4,10 +4,10 @@ using System.Dynamic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using CryptoExchangeFarmer.Helpers;
+using CryptoExchangeTrader.Helpers;
 using Newtonsoft.Json;
 
-namespace CryptoExchangeFarmer.Handlers
+namespace CryptoExchangeTrader.Handlers
 {
     public class ServicesHandler : IServicesHandler
     {

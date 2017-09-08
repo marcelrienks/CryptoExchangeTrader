@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using CryptoExchangeFarmer.Data;
-using CryptoExchangeFarmer.Exchanges;
-using CryptoExchangeFarmer.Handlers;
+using CryptoExchangeTrader.Data;
+using CryptoExchangeTrader.Exchanges;
+using CryptoExchangeTrader.Handlers;
 
-namespace CryptoExchangeFarmer
+namespace CryptoExchangeTrader
 {
     public class Program
     {
@@ -51,7 +51,7 @@ namespace CryptoExchangeFarmer
                 {
                     // Using reflection, instantiate configured exchange
                     var constructorParams = new object[] { exchangeConfiguration, new ServicesHandler(exchangeConfiguration.ApiUrl, exchangeConfiguration.DefaultApiHeaders) };
-                    var type = Type.GetType($"CryptoExchangeFarmer.Exchanges.{exchangeConfiguration.Name}");
+                    var type = Type.GetType($"CryptoExchangeTrader.Exchanges.{exchangeConfiguration.Name}");
                     var initialisedExchange = (Exchange)Activator.CreateInstance(type, constructorParams);
 
                     // Add concrete exchange to list

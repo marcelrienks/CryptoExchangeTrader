@@ -1,4 +1,4 @@
-﻿namespace CryptoExchangeFarmer.Models
+﻿namespace CryptoExchangeTrader.Models
 {
     public class Tickers
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CryptoExchangeFarmer.Helpers
+namespace CryptoExchangeTrader.Helpers
 {
     public static class Date
     {

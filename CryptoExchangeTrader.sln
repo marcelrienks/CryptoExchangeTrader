@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoExchangeFarmer", "CryptoExchangeFarmer\CryptoExchangeFarmer.csproj", "{6E98E3BF-8BFD-4A03-83CA-B662EDBD15C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoExchangeTrader", "CryptoExchangeTrader\CryptoExchangeTrader.csproj", "{6E98E3BF-8BFD-4A03-83CA-B662EDBD15C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{184B1598-8528-4026-9046-284680939D50}"
 	ProjectSection(SolutionItems) = preProject

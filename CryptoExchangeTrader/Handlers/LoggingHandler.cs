@@ -1,8 +1,8 @@
 ﻿using System;
-using CryptoExchangeFarmer.Data;
-using CryptoExchangeFarmer.Models;
+using CryptoExchangeTrader.Data;
+using CryptoExchangeTrader.Models;
 
-namespace CryptoExchangeFarmer.Handlers
+namespace CryptoExchangeTrader.Handlers
 {
     public class LoggingHandler
     {

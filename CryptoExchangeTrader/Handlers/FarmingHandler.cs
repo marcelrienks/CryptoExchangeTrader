@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using CryptoExchangeFarmer.Exchanges;
+using CryptoExchangeTrader.Exchanges;
 
-namespace CryptoExchangeFarmer.Handlers
+namespace CryptoExchangeTrader.Handlers
 {
     public class FarmingHandler
     {

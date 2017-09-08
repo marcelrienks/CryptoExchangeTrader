@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using CryptoExchangeFarmer.Models;
+using CryptoExchangeTrader.Models;
 using Newtonsoft.Json;
 
-namespace CryptoExchangeFarmer.Data
+namespace CryptoExchangeTrader.Data
 {
     public class DataStore : IDataStore
     {

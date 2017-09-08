@@ -1,7 +1,7 @@
 ﻿using System;
-using CryptoExchangeFarmer.Models;
+using CryptoExchangeTrader.Models;
 
-namespace CryptoExchangeFarmer.Handlers
+namespace CryptoExchangeTrader.Handlers
 {
     public static class ExceptionHandler
     {

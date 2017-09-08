@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CryptoExchangeFarmer.Helpers
+namespace CryptoExchangeTrader.Helpers
 {
     public static class Extensions
     {

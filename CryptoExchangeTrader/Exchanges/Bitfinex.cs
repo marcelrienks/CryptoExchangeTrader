@@ -1,8 +1,8 @@
 ﻿using System;
-using CryptoExchangeFarmer.Handlers;
-using CryptoExchangeFarmer.Models;
+using CryptoExchangeTrader.Handlers;
+using CryptoExchangeTrader.Models;
 
-namespace CryptoExchangeFarmer.Exchanges
+namespace CryptoExchangeTrader.Exchanges
 {
     public class Bitfinex : Exchange
     {
@@ -28,6 +28,11 @@ namespace CryptoExchangeFarmer.Exchanges
         }
 
         public override object GetOpenTrades()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object GetLastTradesForConfiguredCoins()
         {
             throw new NotImplementedException();
         }

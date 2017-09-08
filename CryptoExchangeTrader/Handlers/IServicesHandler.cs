@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CryptoExchangeFarmer.Handlers
+namespace CryptoExchangeTrader.Handlers
 {
     public interface IServicesHandler
     {
