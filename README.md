@@ -1,4 +1,4 @@
-# Crypto Exchange Trader
+# Crypto Exchange Trader Bot
 
 [![Build status](https://ci.appveyor.com/api/projects/status/tdt1ejffp8wyl8de?svg=true)](https://ci.appveyor.com/project/marcelrienks/CryptoExchangeTrader)
 
