@@ -4,7 +4,7 @@
 
 **_NOTE: this project is very much under development._**
 
-Crypto Exchange Trader is a Crypto Currency Farming bot.  
+Crypto Exchange Trader is a Crypto Currency Trading bot.  
 
 This tool will use configuration information that you specify to automate trades on supported exchanges. The idea with this bot is to make constant small trades, where the bot buys low and sells as high as it can, and in so doing constantly farm small little profits.  
 
