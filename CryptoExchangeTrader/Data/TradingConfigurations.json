@@ -1,7 +1,7 @@
 [
   {
     "ExchangeName": "Bitfinex",
-    "StratagyName": "Farming",
+    "StrategyName": "Farming",
     "ApiUrl": "https://api.bitfinex.com/v1/",
     "ApiHeaders": {},
     "Custom": {

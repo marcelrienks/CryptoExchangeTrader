@@ -11,4 +11,14 @@
         Error,
         Exception
     }
+
+    /// <summary>
+    /// The mode in which to run the trades in
+    /// </summary>
+    public enum Mode
+    {
+        Backtest,
+        Paper,
+        Live
+    }
 }

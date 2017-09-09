@@ -53,7 +53,7 @@ namespace CryptoExchangeTrader.Data
         /// Get configured trading from Data Store
         /// </summary>
         /// <returns>list of trading configurations</returns>
-        public List<TradingConfiguration> GetTradeingConfigurations()
+        public List<TradingConfiguration> GetTradingConfigurations()
         {
             List<TradingConfiguration> tradingConfigurations;
 

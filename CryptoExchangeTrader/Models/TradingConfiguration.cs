@@ -5,7 +5,8 @@ namespace CryptoExchangeTrader.Models
     public class TradingConfiguration
     {
         public string ExchangeName { get; set; }
-        public string StratagyName { get; set; }
+        public string StrategyName { get; set; }
+        public Mode TradingMode { get; set; }
 
         // API
         public string ApiUrl { get; set; }

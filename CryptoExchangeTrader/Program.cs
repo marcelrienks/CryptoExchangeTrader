@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using CryptoExchangeTrader.Data;
-using CryptoExchangeTrader.Exchanges;
 using CryptoExchangeTrader.Handlers;
 
 namespace CryptoExchangeTrader
@@ -20,49 +18,17 @@ namespace CryptoExchangeTrader
             {
                 // Initialise
                 var data = new DataStore(ConfigurationManager.AppSettings["TradingConfiguration"], ConfigurationManager.AppSettings["Logs"]);
-                var configurations = InitialiseConfigurations(data);
 
-                // Start Farming
-                foreach (var configuration in configurations)
-                {
-                    //new TradingHandler(configuration).Trade(); 
-                }
+                // Retrieve all configured exchanges
+                var tradingConfigurations = data.GetTradingConfigurations();
+
+                // Run trade for each configuration
+                tradingConfigurations?.ForEach(tradingConfiguration => new TradingHandler(data, tradingConfiguration).Trade());
             }
             catch (Exception ex)
             {
                 ExceptionHandler.HandleException(ex);
             }
-        }
-
-        //TODO: the mothod below needs to be rewritten after adding both exchange and stratagy to a configuration
-        // It should return an concrete IExchange and IStrategy
-
-        /// <summary>
-        /// Initialises configured exchanges
-        /// </summary>
-        /// <returns>list of configured exchanges</returns>
-        private static List<IExchange> InitialiseConfigurations(DataStore data)
-        {
-            List<IExchange> exchanges = null;
-
-            // Retrieve all configured exchanges
-            var exchangeConfigurations = data.GetTradeingConfigurations();
-            if (exchangeConfigurations != null && exchangeConfigurations.Any())
-            {
-                exchanges = new List<IExchange>();
-                foreach (var exchangeConfiguration in exchangeConfigurations)
-                {
-                    // Using reflection, instantiate configured exchange
-                    var constructorParams = new object[] { exchangeConfiguration, new ServicesHandler(exchangeConfiguration.ApiUrl, exchangeConfiguration.DefaultApiHeaders) };
-                    var type = Type.GetType($"CryptoExchangeTrader.Exchanges.{exchangeConfiguration.ExchangeName}");
-                    var initialisedExchange = (IExchange)Activator.CreateInstance(type, constructorParams);
-
-                    // Add concrete exchange to list
-                    exchanges.Add(initialisedExchange);
-                }
-            }
-
-            return exchanges;
         }
 
         /// <summary>
@@ -76,8 +42,14 @@ namespace CryptoExchangeTrader
                 new Models.TradingConfiguration()
                 {
                     ExchangeName = "Dummy",
-                    StratagyName = "Dummy",
+                    StrategyName = "Farming",
+                    TradingMode = Models.Mode.Paper,
                     ApiUrl = "www",
+                    DefaultApiHeaders = new Dictionary<string, string>()
+                    {
+                        { "header1", "value" },
+                        { "header1", "value" }
+                    },
                     CustomApiSettings = new Dictionary<string, string>()
                     {
                         { "header1", "value" },
@@ -85,8 +57,9 @@ namespace CryptoExchangeTrader
                     },
                     CoinPairs = new List<string>()
                     {
-                        "coin",
-                        "coin"
+                        "btcusd",
+                        "ethbtc",
+                        "ltcbtc"
                     }
                 }
             });
