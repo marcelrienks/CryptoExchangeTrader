@@ -9,11 +9,6 @@ namespace CryptoExchangeTrader.Stratagies
     public class Farming : IStrategy
     {
         //TODO:
-        // 1. Collect
-        // 1.1 Configured Currency Pair tickers
-        // 1.2 Coin balances
-        // 1.3 Open Trades
-        // 1.4 Last Closed trade for each Currency Pair
         // 2. TODO: Logic to handle open trades
         // 3. Foreach Currency Pair if last trade was a Buy
         // 3.1 If current price is higher than last buy price + positive distance

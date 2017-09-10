@@ -26,17 +26,17 @@ namespace CryptoExchangeTrader.Exchanges
             throw new NotImplementedException();
         }
 
-        public object GetInvestedCoinBalances()
+        public object GetCoinBalancesForInvested()
         {
             throw new NotImplementedException();
         }
 
-        public object GetOpenTrades()
+        public object GetOpenTradeForConfiguredCoins()
         {
             throw new NotImplementedException();
         }
 
-        public object GetLastTradesForConfiguredCoins()
+        public object GetLastTradeForConfiguredCoins()
         {
             throw new NotImplementedException();
         }

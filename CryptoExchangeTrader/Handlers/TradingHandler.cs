@@ -8,6 +8,8 @@ namespace CryptoExchangeTrader.Handlers
 {
     public class TradingHandler
     {
+        //QUESTION: should this be moved into the exchange base class, making that an abstract class?
+
         private DataStore _data;
         private IExchange _exchange;
         private IStrategy _strategy;
@@ -50,7 +52,10 @@ namespace CryptoExchangeTrader.Handlers
 
         public void Trade()
         {
-            
+            var investedCoinBalances = _exchange.GetInvestedBalancesForConfiguredCoins(_tradingConfiguration.CoinPairs);
+            var openTrades = _exchange.GetOpenTradeForConfiguredCoins(_tradingConfiguration.CoinPairs);
+            var lastClosedTrade = _exchange.GetLastTradeForConfiguredCoins(_tradingConfiguration.CoinPairs);
+            var currentTickers = _exchange.GetTickersForConfiguredCoins(_tradingConfiguration.CoinPairs);
         }
     }
 }

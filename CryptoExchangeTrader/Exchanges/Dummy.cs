@@ -8,22 +8,22 @@ namespace CryptoExchangeTrader.Exchanges
 {
     public class Dummy : IExchange
     {
-        public object GetInvestedCoinBalances()
+        public object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetLastTradesForConfiguredCoins()
+        public object GetLastTradeForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetOpenTrades()
+        public object GetOpenTradeForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetTickersForConfiguredCoins()
+        public object GetTickersForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
