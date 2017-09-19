@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CryptoExchangeTrader.Exchanges;
 using CryptoExchangeTrader.Models;
 
@@ -10,6 +6,11 @@ namespace CryptoExchangeTrader.Stratagies
 {
     public class Farming : Strategy
     {
+        private object _investedBalances;
+        private object _openTrade;
+        private object _lastTrade;
+        private object _tickers;
+
         /// <summary>
         /// Construct a concrete Farming Strategy
         /// </summary>
@@ -22,6 +23,7 @@ namespace CryptoExchangeTrader.Stratagies
 
         public override void ExecuteStrategy()
         {
+            FetchExchangeData(Exchange.ExchangeConfiguration.CoinPairs);
             //TODO:
             // 2. TODO: Logic to handle open trades
             // 3. Foreach Currency Pair if last trade was a Buy
@@ -31,12 +33,19 @@ namespace CryptoExchangeTrader.Stratagies
             // 3.2.1 Create stop order at current price
             // 4. Foreach Currency Pair if last trade was a Sell
             // 4.1 TODO: Logic for when last trade was a sell
+        }
 
+        /// <summary>
+        /// Fetch all the data required from the Exchange
+        /// </summary>
+        /// <param name="coins">the coins for which to fetch all the data</param>
+        private void FetchExchangeData(List<string> coins)
+        {
             // Use exchange to collect all the data
-            var investedCoinBalances = Exchange.GetInvestedBalancesForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
-            var openTrades = Exchange.GetOpenTradeForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
-            var lastClosedTrade = Exchange.GetLastTradeForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
-            var currentTickers = Exchange.GetTickersForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
+            _investedBalances = Exchange.GetInvestedBalancesForConfiguredCoins(coins);
+            _openTrade = Exchange.GetOpenTradeForConfiguredCoins(coins);
+            _lastTrade = Exchange.GetLastTradeForConfiguredCoins(coins);
+            _tickers = Exchange.GetTickersForConfiguredCoins(coins);
         }
         
         #endregion

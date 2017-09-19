@@ -31,10 +31,10 @@ namespace CryptoExchangeTrader.Exchanges
 
         #region Abstract
 
-        public abstract object GetTickersForConfiguredCoins(List<string> CoinPairs);
         public abstract object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs);
         public abstract object GetOpenTradeForConfiguredCoins(List<string> CoinPairs);
         public abstract object GetLastTradeForConfiguredCoins(List<string> CoinPairs);
+        public abstract object GetTickersForConfiguredCoins(List<string> CoinPairs);
 
         #endregion
     }
