@@ -17,13 +17,13 @@ namespace CryptoExchangeTrader
             try
             {
                 // Initialise
-                var data = new DataStore(ConfigurationManager.AppSettings["TradingConfiguration"], ConfigurationManager.AppSettings["Logs"]);
+                var dataStore = new DataStore(ConfigurationManager.AppSettings["TradingConfigurationStore"], ConfigurationManager.AppSettings["LogLocation"]);
 
                 // Retrieve all configured exchanges
-                var tradingConfigurations = data.GetTradingConfigurations();
+                var tradingConfigurations = dataStore.GetTradingConfigurations();
 
                 // Run trade for each configuration
-                tradingConfigurations?.ForEach(tradingConfiguration => new TradingHandler(data, tradingConfiguration).Trade());
+                tradingConfigurations?.ForEach(tradingConfiguration => new TradingHandler(dataStore, tradingConfiguration).Trade());
             }
             catch (Exception ex)
             {

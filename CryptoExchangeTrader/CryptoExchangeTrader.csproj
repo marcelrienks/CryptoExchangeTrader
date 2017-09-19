@@ -59,14 +59,14 @@
     <Compile Include="Handlers\TradingHandler.cs" />
     <Compile Include="Handlers\LoggingHandler.cs" />
     <Compile Include="Data\IDataStore.cs" />
-    <Compile Include="Exchanges\IExchange.cs" />
+    <Compile Include="Exchanges\Exchange.cs" />
     <Compile Include="Models\CurrencyPair.cs" />
     <Compile Include="Models\TradingConfiguration.cs" />
     <Compile Include="Models\Tickers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategies\Farming.cs" />
-    <Compile Include="Strategies\IStrategy.cs" />
+    <Compile Include="Strategies\Strategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

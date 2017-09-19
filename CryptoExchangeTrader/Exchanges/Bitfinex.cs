@@ -1,42 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
 using CryptoExchangeTrader.Handlers;
 using CryptoExchangeTrader.Models;
 
 namespace CryptoExchangeTrader.Exchanges
 {
-    public class Bitfinex : IExchange
+    public class Bitfinex : Exchange
     {
-        private TradingConfiguration _exchangeConfiguration;
-        private IServicesHandler _servicesHandler;
-
         /// <summary>
         /// Initialise a Bitfinex Exchange
         /// </summary>
-        /// <param name="exchangeConfiguration"></param>
-        protected Bitfinex(TradingConfiguration exchangeConfiguration, IServicesHandler servicesHandler)
+        /// <param name="tradingConfiguration">concrete dependency injected tradingConfiguration</param>
+        /// <param name="servicesHandler">concrete dependency injected servicesHandler</param>
+        public Bitfinex(TradingConfiguration tradingConfiguration, ServicesHandler servicesHandler) : base (tradingConfiguration, servicesHandler)
         {
-            _exchangeConfiguration = exchangeConfiguration;
-            _servicesHandler = servicesHandler;
         }
 
         #region Public
 
-        public object GetTickersForConfiguredCoins()
+        public override object GetTickersForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetCoinBalancesForInvested()
+        public override object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetOpenTradeForConfiguredCoins()
+        public override object GetOpenTradeForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetLastTradeForConfiguredCoins()
+        public override object GetLastTradeForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }

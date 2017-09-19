@@ -8,12 +8,9 @@ namespace CryptoExchangeTrader.Handlers
 {
     public class TradingHandler
     {
-        //QUESTION: should this be moved into the exchange base class, making that an abstract class?
-
         private DataStore _data;
-        private IExchange _exchange;
-        private IStrategy _strategy;
         private TradingConfiguration _tradingConfiguration;
+        private Strategy _strategy;
 
         /// <summary>
         /// Initialse a new Trading handler with supplied exchange and strategy
@@ -22,40 +19,41 @@ namespace CryptoExchangeTrader.Handlers
         /// <param name="strategy">dependancy injected strategy</param>
         public TradingHandler(DataStore data, TradingConfiguration tradingConfiguration)
         {
-            _data = data;
+            _data = data; //QUESTION will this be used in here, or passed to exchange and stratagy
             _tradingConfiguration = tradingConfiguration;
-            InitialiseExchange();
-            InitialiseStrategy();
+
+            // Initialise an Exchange and a Strategy 
+            var exchange = InitialiseExchange();
+            _strategy = InitialiseStrategy(exchange);
         }
 
         /// <summary>
-        /// Instantiate a concrete exchange
+        /// Instantiate a concrete exchange using reflection
         /// </summary>
         /// <returns>list of configured exchanges</returns>
-        private void InitialiseExchange()
+        private Exchange InitialiseExchange()
         {
             // Using reflection, instantiate a concrete exchange
             var constructorParams = new object[] { _tradingConfiguration, new ServicesHandler(_tradingConfiguration.ApiUrl, _tradingConfiguration.DefaultApiHeaders) };
             var type = Type.GetType($"CryptoExchangeTrader.Exchanges.{_tradingConfiguration.ExchangeName}");
-            _exchange = (IExchange)Activator.CreateInstance(type, constructorParams);
+            return (Exchange)Activator.CreateInstance(type, constructorParams);
         }
 
         /// <summary>
-        /// Instantiate a concrete strategy
+        /// Instantiate a concrete strategy using reflection
         /// </summary>
-        private void InitialiseStrategy()
+        private Strategy InitialiseStrategy(Exchange exchange)
         {
             // Using reflection, instantiate a concrete strategy
+            var constructorParams = new object[] { exchange };
             var type = Type.GetType($"CryptoExchangeTrader.Strategy.{_tradingConfiguration.StrategyName}");
-            _strategy = (IStrategy)Activator.CreateInstance(type);
+            return (Strategy)Activator.CreateInstance(type, constructorParams);
         }
 
         public void Trade()
         {
-            var investedCoinBalances = _exchange.GetInvestedBalancesForConfiguredCoins(_tradingConfiguration.CoinPairs);
-            var openTrades = _exchange.GetOpenTradeForConfiguredCoins(_tradingConfiguration.CoinPairs);
-            var lastClosedTrade = _exchange.GetLastTradeForConfiguredCoins(_tradingConfiguration.CoinPairs);
-            var currentTickers = _exchange.GetTickersForConfiguredCoins(_tradingConfiguration.CoinPairs);
+            // Start Trading
+            _strategy.ExecuteStrategy();
         }
     }
 }

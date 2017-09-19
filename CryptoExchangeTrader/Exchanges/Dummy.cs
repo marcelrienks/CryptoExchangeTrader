@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CryptoExchangeTrader.Handlers;
+using CryptoExchangeTrader.Models;
 
 namespace CryptoExchangeTrader.Exchanges
 {
-    public class Dummy : IExchange
+    public class Dummy : Exchange
     {
-        public object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs)
+        /// <summary>
+        /// Initialise a Dummy Exchange used for testing
+        /// </summary>
+        /// <param name="tradingConfiguration">concrete dependency injected TradingConfiguration</param>
+        /// <param name="servicesHandler">concrete dependency injected ServicesHandler</param>
+        public Dummy(TradingConfiguration tradingConfiguration, ServicesHandler servicesHandler) : base (tradingConfiguration, servicesHandler)
+        {
+        }
+
+        #region Public
+
+        public override object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetLastTradeForConfiguredCoins(List<string> CoinPairs)
+        public override object GetLastTradeForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetOpenTradeForConfiguredCoins(List<string> CoinPairs)
+        public override object GetOpenTradeForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
 
-        public object GetTickersForConfiguredCoins(List<string> CoinPairs)
+        public override object GetTickersForConfiguredCoins(List<string> CoinPairs)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
