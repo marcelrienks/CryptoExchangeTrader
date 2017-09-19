@@ -37,30 +37,36 @@ namespace CryptoExchangeTrader
         /// </summary>
         private static void GenerateDummyExchangeConfiguration()
         {
-            var data = new DataStore(ConfigurationManager.AppSettings["TradingConfiguration"], ConfigurationManager.AppSettings["Logs"]);
+            var data = new DataStore(ConfigurationManager.AppSettings["TradingConfigurationStore"], ConfigurationManager.AppSettings["Logs"]);
             data.SetTradingConfigurations(new List<Models.TradingConfiguration>() {
                 new Models.TradingConfiguration()
                 {
-                    ExchangeName = "Dummy",
-                    StrategyName = "Farming",
+                    Exchange = new Models.ExchangeConfiguration()
+                    {
+                        Name = "Dummy",
+                        ApiUrl = "www",
+                        DefaultApiHeaders = new Dictionary<string, string>()
+                        {
+                            { "header1", "value" },
+                            { "header2", "value" }
+                        },
+                        CustomApiSettings = new Dictionary<string, string>()
+                        {
+                            { "header1", "value" },
+                            { "header2", "value" }
+                        },
+                        CoinPairs = new List<string>()
+                        {
+                            "btcusd",
+                            "ethbtc",
+                            "ltcbtc"
+                        }
+                    },
+                    Strategy = new Models.StrategyConfiguration()
+                    {
+                        Name = "Farming"
+                    },
                     TradingMode = Models.Mode.Paper,
-                    ApiUrl = "www",
-                    DefaultApiHeaders = new Dictionary<string, string>()
-                    {
-                        { "header1", "value" },
-                        { "header1", "value" }
-                    },
-                    CustomApiSettings = new Dictionary<string, string>()
-                    {
-                        { "header1", "value" },
-                        { "header2", "value" }
-                    },
-                    CoinPairs = new List<string>()
-                    {
-                        "btcusd",
-                        "ethbtc",
-                        "ltcbtc"
-                    }
                 }
             });
         }

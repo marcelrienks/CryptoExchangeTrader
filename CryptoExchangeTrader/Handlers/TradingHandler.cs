@@ -34,8 +34,8 @@ namespace CryptoExchangeTrader.Handlers
         private Exchange InitialiseExchange()
         {
             // Using reflection, instantiate a concrete exchange
-            var constructorParams = new object[] { _tradingConfiguration, new ServicesHandler(_tradingConfiguration.ApiUrl, _tradingConfiguration.DefaultApiHeaders) };
-            var type = Type.GetType($"CryptoExchangeTrader.Exchanges.{_tradingConfiguration.ExchangeName}");
+            var constructorParams = new object[] { _tradingConfiguration.Exchange, new ServicesHandler(_tradingConfiguration.Exchange.ApiUrl, _tradingConfiguration.Exchange.DefaultApiHeaders) };
+            var type = Type.GetType($"CryptoExchangeTrader.Exchanges.{_tradingConfiguration.Exchange.Name}");
             return (Exchange)Activator.CreateInstance(type, constructorParams);
         }
 
@@ -45,11 +45,14 @@ namespace CryptoExchangeTrader.Handlers
         private Strategy InitialiseStrategy(Exchange exchange)
         {
             // Using reflection, instantiate a concrete strategy
-            var constructorParams = new object[] { exchange };
-            var type = Type.GetType($"CryptoExchangeTrader.Strategy.{_tradingConfiguration.StrategyName}");
+            var constructorParams = new object[] { _tradingConfiguration.Strategy, exchange };
+            var type = Type.GetType($"CryptoExchangeTrader.Strategy.{_tradingConfiguration.Strategy.Name}");
             return (Strategy)Activator.CreateInstance(type, constructorParams);
         }
 
+        /// <summary>
+        /// Runs trading by executing the Strategy for the given exchange
+        /// </summary>
         public void Trade()
         {
             // Start Trading

@@ -12,7 +12,7 @@ namespace CryptoExchangeTrader.Exchanges
         /// </summary>
         /// <param name="tradingConfiguration">concrete dependency injected tradingConfiguration</param>
         /// <param name="servicesHandler">concrete dependency injected servicesHandler</param>
-        public Bitfinex(TradingConfiguration tradingConfiguration, ServicesHandler servicesHandler) : base (tradingConfiguration, servicesHandler)
+        public Bitfinex(ExchangeConfiguration exchangeConfiguration, ServicesHandler servicesHandler) : base (exchangeConfiguration, servicesHandler)
         {
         }
 

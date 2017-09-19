@@ -4,20 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CryptoExchangeTrader.Exchanges;
+using CryptoExchangeTrader.Models;
 
 namespace CryptoExchangeTrader.Stratagies
 {
     public abstract class Strategy
     {
-        public Exchange _exchange;
+        public StrategyConfiguration StrategyConfiguration;
+        public Exchange Exchange;
 
         /// <summary>
         /// Construct a concrete Strategy
         /// </summary>
         /// <param name="exchange">concrete dependency injected Exchange</param>
-        public Strategy(Exchange exchange)
+        public Strategy(StrategyConfiguration strategyConfiguration, Exchange exchange)
         {
-            _exchange = exchange;
+            StrategyConfiguration = strategyConfiguration;
+            Exchange = exchange;
         }
 
         #region Abstract

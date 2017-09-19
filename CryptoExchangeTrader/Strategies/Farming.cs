@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CryptoExchangeTrader.Exchanges;
+using CryptoExchangeTrader.Models;
 
 namespace CryptoExchangeTrader.Stratagies
 {
@@ -13,7 +14,7 @@ namespace CryptoExchangeTrader.Stratagies
         /// Construct a concrete Farming Strategy
         /// </summary>
         /// <param name="exchange">concrete dependency injected Exchange</param>
-        public Farming(Exchange exchange) : base(exchange)
+        public Farming(StrategyConfiguration strategyConfiguration, Exchange exchange) : base(strategyConfiguration, exchange)
         {
         }
 
@@ -32,10 +33,10 @@ namespace CryptoExchangeTrader.Stratagies
             // 4.1 TODO: Logic for when last trade was a sell
 
             // Use exchange to collect all the data
-            var investedCoinBalances = _exchange.GetInvestedBalancesForConfiguredCoins(_tradingConfiguration.CoinPairs);
-            var openTrades = _exchange.GetOpenTradeForConfiguredCoins(_tradingConfiguration.CoinPairs);
-            var lastClosedTrade = _exchange.GetLastTradeForConfiguredCoins(_tradingConfiguration.CoinPairs);
-            var currentTickers = _exchange.GetTickersForConfiguredCoins(_tradingConfiguration.CoinPairs);
+            var investedCoinBalances = Exchange.GetInvestedBalancesForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
+            var openTrades = Exchange.GetOpenTradeForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
+            var lastClosedTrade = Exchange.GetLastTradeForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
+            var currentTickers = Exchange.GetTickersForConfiguredCoins(Exchange.ExchangeConfiguration.CoinPairs);
         }
         
         #endregion

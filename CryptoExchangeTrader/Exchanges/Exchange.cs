@@ -6,18 +6,27 @@ namespace CryptoExchangeTrader.Exchanges
 {
     public abstract class Exchange
     {
-        public TradingConfiguration _tradingConfiguration;
-        public ServicesHandler _servicesHandler;
+        public ExchangeConfiguration ExchangeConfiguration;
+        private ServicesHandler _servicesHandler;
 
         /// <summary>
         /// Construct a concrete Exchange
         /// </summary>
         /// <param name="tradingConfiguration">concrete dependency injected TradingConfiguration</param>
         /// <param name="servicesHandler">concrete dependency injected ServicesHandler</param>
-        public Exchange(TradingConfiguration tradingConfiguration, ServicesHandler servicesHandler)
+        public Exchange(ExchangeConfiguration exchangeConfiguration, ServicesHandler servicesHandler)
         {
-            _tradingConfiguration = tradingConfiguration;
+            ExchangeConfiguration = exchangeConfiguration;
             _servicesHandler = servicesHandler;
+        }
+
+        /// <summary>
+        /// Returns the configured coin pairs for this esxchange
+        /// </summary>
+        /// <returns>List<string></returns>
+        public List<string> GetCoinPairs()
+        {
+            return ExchangeConfiguration.CoinPairs;
         }
 
         #region Abstract

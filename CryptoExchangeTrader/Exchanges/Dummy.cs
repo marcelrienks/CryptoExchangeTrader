@@ -15,7 +15,7 @@ namespace CryptoExchangeTrader.Exchanges
         /// </summary>
         /// <param name="tradingConfiguration">concrete dependency injected TradingConfiguration</param>
         /// <param name="servicesHandler">concrete dependency injected ServicesHandler</param>
-        public Dummy(TradingConfiguration tradingConfiguration, ServicesHandler servicesHandler) : base (tradingConfiguration, servicesHandler)
+        public Dummy(ExchangeConfiguration exchangeConfiguration, ServicesHandler servicesHandler) : base(exchangeConfiguration, servicesHandler)
         {
         }
 

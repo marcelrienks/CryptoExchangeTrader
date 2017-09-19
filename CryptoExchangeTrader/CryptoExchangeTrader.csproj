@@ -61,6 +61,8 @@
     <Compile Include="Data\IDataStore.cs" />
     <Compile Include="Exchanges\Exchange.cs" />
     <Compile Include="Models\CurrencyPair.cs" />
+    <Compile Include="Models\ExchangeConfiguration.cs" />
+    <Compile Include="Models\StrategyConfiguration.cs" />
     <Compile Include="Models\TradingConfiguration.cs" />
     <Compile Include="Models\Tickers.cs" />
     <Compile Include="Program.cs" />

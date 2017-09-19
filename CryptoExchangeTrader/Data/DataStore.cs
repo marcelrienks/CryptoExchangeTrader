@@ -8,16 +8,16 @@ namespace CryptoExchangeTrader.Data
 {
     public class DataStore : IDataStore
     {
-        private string _exchangesLocation;
+        private string _tradingConfigurationStore;
         private string _logsLocation;
 
         /// <summary>
         /// Initialise Data Store
         /// </summary>
         /// <param name="location"></param>
-        public DataStore(string exchangesLocation, string logsLocation)
+        public DataStore(string tradingConfigurationStore, string logsLocation)
         {
-            _exchangesLocation = exchangesLocation;
+            _tradingConfigurationStore = tradingConfigurationStore;
             _logsLocation = logsLocation;
         }
 
@@ -42,7 +42,7 @@ namespace CryptoExchangeTrader.Data
                 log = $"{DateTime.Now}: {level} - {message}{Environment.NewLine}Exception: {exception.Message}{Environment.NewLine}StackTrace: {exception.StackTrace}{Environment.NewLine}Inner: {exception.InnerException?.Message}";
 
             // Write logs to file
-            using (var file = File.AppendText(_exchangesLocation))
+            using (var file = File.AppendText(_logsLocation))
             {
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, log);
@@ -58,7 +58,7 @@ namespace CryptoExchangeTrader.Data
             List<TradingConfiguration> tradingConfigurations;
 
             // Write data to file
-            using (var file = File.OpenText(_exchangesLocation))
+            using (var file = File.OpenText(_tradingConfigurationStore))
             {
                 var serializer = new JsonSerializer();
                 tradingConfigurations = (List<TradingConfiguration>)serializer.Deserialize(file, typeof(List<TradingConfiguration>));
@@ -74,7 +74,7 @@ namespace CryptoExchangeTrader.Data
         public void SetTradingConfigurations(List<TradingConfiguration> tradingConfigurations)
         {
             // Read data from file
-            using (var file = File.CreateText(_exchangesLocation))
+            using (var file = File.CreateText(_tradingConfigurationStore))
             {
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, tradingConfigurations);

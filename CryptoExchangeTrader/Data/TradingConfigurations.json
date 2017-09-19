@@ -1,13 +1,19 @@
 [
   {
-    "ExchangeName": "Bitfinex",
-    "StrategyName": "Farming",
-    "ApiUrl": "https://api.bitfinex.com/v1/",
-    "ApiHeaders": {},
-    "Custom": {
-      "ApiKey": "PnNcvbFeO3vXrNDdgyEC54AUWD4SzuaecOvD3EUMiuI",
-      "ApiSecret": "7ADEox6o0GoqttIA2rokCmvxwdZtgxU4rqG2Sycb6kz"
+    "Exchange": {
+      "Name": "Dummy",
+      "ApiUrl": "www",
+      "DefaultApiHeaders": {
+        "header1": "value",
+        "header2": "value"
+      },
+      "CustomApiSettings": {
+        "header1": "value",
+        "header2": "value"
+      }
     },
-    "CoinPairs": [ "coin", "coin" ]
+    "Strategy": { "Name": "Farming" },
+    "TradingMode": 1,
+    "CoinPairs": [ "btcusd", "ethbtc", "ltcbtc" ]
   }
 ]
