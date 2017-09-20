@@ -21,4 +21,13 @@
         Paper,
         Live
     }
+
+    /// <summary>
+    /// The type of trade
+    /// </summary>
+    public enum TradeType
+    {
+        Buy,
+        Sell
+    }
 }

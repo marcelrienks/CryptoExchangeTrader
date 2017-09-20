@@ -18,22 +18,22 @@ namespace CryptoExchangeTrader.Exchanges
 
         #region Public
 
-        public override object GetTickersForConfiguredCoins(List<string> CoinPairs)
+        public override List<Balance> GetMyInvestedBalances(List<string> CurrencyPairs)
         {
             throw new NotImplementedException();
         }
 
-        public override object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs)
+        public override List<Trade> GetMyOpenTrades(List<string> CurrencyPairs)
         {
             throw new NotImplementedException();
         }
 
-        public override object GetOpenTradeForConfiguredCoins(List<string> CoinPairs)
+        public override List<Trade> GetMyLastTrades(List<string> CurrencyPairs)
         {
             throw new NotImplementedException();
         }
 
-        public override object GetLastTradeForConfiguredCoins(List<string> CoinPairs)
+        public override List<Ticker> GetCurrentTickers(List<string> CurrencyPairs)
         {
             throw new NotImplementedException();
         }

@@ -44,7 +44,7 @@ namespace CryptoExchangeTrader
                     Exchange = new Models.ExchangeConfiguration()
                     {
                         Name = "Dummy",
-                        ApiUrl = "www",
+                        ApiUrl = "https://www.dummy.co.za/api/v1/",
                         DefaultApiHeaders = new Dictionary<string, string>()
                         {
                             { "header1", "value" },

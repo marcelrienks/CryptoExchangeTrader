@@ -2,7 +2,7 @@
   {
     "Exchange": {
       "Name": "Dummy",
-      "ApiUrl": "www",
+      "ApiUrl": "https://www.dummy.co.za/api/v1/",
       "DefaultApiHeaders": {
         "header1": "value",
         "header2": "value"
@@ -10,10 +10,10 @@
       "CustomApiSettings": {
         "header1": "value",
         "header2": "value"
-      }
+      },
+      "CoinPairs": [ "btcusd", "ethbtc", "ltcbtc" ]
     },
     "Strategy": { "Name": "Farming" },
-    "TradingMode": 1,
-    "CoinPairs": [ "btcusd", "ethbtc", "ltcbtc" ]
+    "TradingMode": 1
   }
 ]

@@ -6,11 +6,6 @@ namespace CryptoExchangeTrader.Stratagies
 {
     public class Farming : Strategy
     {
-        private object _investedBalances;
-        private object _openTrade;
-        private object _lastTrade;
-        private object _tickers;
-
         /// <summary>
         /// Construct a concrete Farming Strategy
         /// </summary>
@@ -42,10 +37,10 @@ namespace CryptoExchangeTrader.Stratagies
         private void FetchExchangeData(List<string> coins)
         {
             // Use exchange to collect all the data
-            _investedBalances = Exchange.GetInvestedBalancesForConfiguredCoins(coins);
-            _openTrade = Exchange.GetOpenTradeForConfiguredCoins(coins);
-            _lastTrade = Exchange.GetLastTradeForConfiguredCoins(coins);
-            _tickers = Exchange.GetTickersForConfiguredCoins(coins);
+            InvestedBalances = Exchange.GetMyInvestedBalances(coins);
+            OpenTrade = Exchange.GetMyOpenTrades(coins);
+            LastTrade = Exchange.GetMyLastTrades(coins);
+            Tickers = Exchange.GetCurrentTickers(coins);
         }
         
         #endregion

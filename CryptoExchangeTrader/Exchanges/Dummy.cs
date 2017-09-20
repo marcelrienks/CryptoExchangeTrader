@@ -18,24 +18,91 @@ namespace CryptoExchangeTrader.Exchanges
 
         #region Public
 
-        public override object GetInvestedBalancesForConfiguredCoins(List<string> CoinPairs)
+        /// <summary>
+        /// Generates a Dummy list of balances for testing
+        /// </summary>
+        /// <param name="CurrencyPairs">the currency pairs to generate dummy data for</param>
+        /// <returns></returns>
+        public override List<Balance> GetMyInvestedBalances(List<string> CurrencyPairs)
         {
-            throw new NotImplementedException();
+            var result = new List<Balance>();
+            foreach (var currencyPair in CurrencyPairs)
+            {
+                result.Add(new Balance()
+                {
+                    CurrencyPair = currencyPair,
+                    Total = 0.0005,
+                    Available = 0.0003
+                });
+            }
+
+            return result;
         }
 
-        public override object GetLastTradeForConfiguredCoins(List<string> CoinPairs)
+        /// <summary>
+        /// Generates a Dummy list of closed trades for testing
+        /// </summary>
+        /// <param name="CurrencyPairs">the currency pairs to generate dummy data for</param>
+        /// <returns></returns>
+        public override List<Trade> GetMyLastTrades(List<string> CurrencyPairs)
         {
-            throw new NotImplementedException();
+            var result = new List<Trade>();
+            foreach (var currencyPair in CurrencyPairs)
+            {
+                result.Add(new Trade()
+                {
+                    CurrencyPair = currencyPair,
+                    Date = DateTime.Now,
+                    Price = 0.001,
+                    Amount = 0.0005,
+                    Type = TradeType.Sell
+                });
+            }
+
+            return result;
         }
 
-        public override object GetOpenTradeForConfiguredCoins(List<string> CoinPairs)
+        /// <summary>
+        /// Generates a Dummy list of open trades for testing
+        /// </summary>
+        /// <param name="CurrencyPairs">the currency pairs to generate dummy data for</param>
+        /// <returns></returns>
+        public override List<Trade> GetMyOpenTrades(List<string> CurrencyPairs)
         {
-            throw new NotImplementedException();
+            var result = new List<Trade>();
+            foreach (var currencyPair in CurrencyPairs)
+            {
+                result.Add(new Trade()
+                {
+                    CurrencyPair = currencyPair,
+                    Date = DateTime.Now,
+                    Price = 0.001,
+                    Amount = 0.0005,
+                    Type = TradeType.Sell
+                });
+            }
+
+            return result;
         }
 
-        public override object GetTickersForConfiguredCoins(List<string> CoinPairs)
+        /// <summary>
+        /// Generates a Dummy list of Tickers for testing
+        /// </summary>
+        /// <param name="CurrencyPairs">the currency pairs to generate dummy data for</param>
+        /// <returns></returns>
+        public override List<Ticker> GetCurrentTickers(List<string> CurrencyPairs)
         {
-            throw new NotImplementedException();
+            var result = new List<Ticker>();
+            foreach (var currencyPair in CurrencyPairs)
+            {
+                result.Add(new Ticker()
+                {
+                    CurrencyPair = currencyPair,
+                    LastTradePrice = "4000"
+                });
+            }
+
+            return result;
         }
 
         #endregion

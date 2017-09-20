@@ -1,4 +1,5 @@
-﻿using CryptoExchangeTrader.Exchanges;
+﻿using System.Collections.Generic;
+using CryptoExchangeTrader.Exchanges;
 using CryptoExchangeTrader.Models;
 
 namespace CryptoExchangeTrader.Stratagies
@@ -7,6 +8,11 @@ namespace CryptoExchangeTrader.Stratagies
     {
         public StrategyConfiguration StrategyConfiguration;
         public Exchange Exchange;
+
+        public List<Balance> InvestedBalances;
+        public List<Trade> OpenTrade;
+        public List<Trade> LastTrade;
+        public List<Ticker> Tickers;
 
         /// <summary>
         /// Construct a concrete Strategy

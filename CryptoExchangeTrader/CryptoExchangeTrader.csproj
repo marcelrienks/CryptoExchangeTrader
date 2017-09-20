@@ -53,6 +53,7 @@
     <Compile Include="Helpers\Date.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Helpers\Security.cs" />
+    <Compile Include="Models\Balance.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Exchanges\Bitfinex.cs" />
     <Compile Include="Handlers\ExceptionHandler.cs" />
@@ -60,11 +61,11 @@
     <Compile Include="Handlers\LoggingHandler.cs" />
     <Compile Include="Data\IDataStore.cs" />
     <Compile Include="Exchanges\Exchange.cs" />
-    <Compile Include="Models\CurrencyPair.cs" />
     <Compile Include="Models\ExchangeConfiguration.cs" />
     <Compile Include="Models\StrategyConfiguration.cs" />
+    <Compile Include="Models\Trade.cs" />
     <Compile Include="Models\TradingConfiguration.cs" />
-    <Compile Include="Models\Tickers.cs" />
+    <Compile Include="Models\Ticker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategies\Farming.cs" />

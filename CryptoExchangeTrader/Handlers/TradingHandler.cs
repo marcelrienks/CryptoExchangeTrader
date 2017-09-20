@@ -35,7 +35,7 @@ namespace CryptoExchangeTrader.Handlers
         {
             // Using reflection, instantiate a concrete exchange
             var constructorParams = new object[] { _tradingConfiguration.Exchange, new ServicesHandler(_tradingConfiguration.Exchange.ApiUrl, _tradingConfiguration.Exchange.DefaultApiHeaders) };
-            var type = Type.GetType($"CryptoExchangeTrader.Exchanges.{_tradingConfiguration.Exchange.Name}");
+            var type = Type.GetType($"{typeof(Exchange).Namespace}.{_tradingConfiguration.Exchange.Name}");
             return (Exchange)Activator.CreateInstance(type, constructorParams);
         }
 
@@ -46,7 +46,7 @@ namespace CryptoExchangeTrader.Handlers
         {
             // Using reflection, instantiate a concrete strategy
             var constructorParams = new object[] { _tradingConfiguration.Strategy, exchange };
-            var type = Type.GetType($"CryptoExchangeTrader.Strategy.{_tradingConfiguration.Strategy.Name}");
+            var type = Type.GetType($"{typeof(Strategy).Namespace}.{_tradingConfiguration.Strategy.Name}");
             return (Strategy)Activator.CreateInstance(type, constructorParams);
         }
 
