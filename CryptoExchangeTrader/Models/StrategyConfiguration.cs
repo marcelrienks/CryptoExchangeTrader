@@ -9,5 +9,6 @@ namespace CryptoExchangeTrader.Models
     public class StrategyConfiguration
     {
         public string Name { get; set; }
+        public Dictionary<string, string> Configurations { get; set; }
     }
 }

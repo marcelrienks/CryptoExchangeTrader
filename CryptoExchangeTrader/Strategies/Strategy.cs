@@ -10,8 +10,8 @@ namespace CryptoExchangeTrader.Stratagies
         public Exchange Exchange;
 
         public List<Balance> InvestedBalances;
-        public List<Trade> OpenTrade;
-        public List<Trade> LastTrade;
+        public List<Trade> OpenTrades;
+        public List<Trade> LastTrades;
         public List<Ticker> Tickers;
 
         /// <summary>

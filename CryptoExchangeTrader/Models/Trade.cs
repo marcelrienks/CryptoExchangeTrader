@@ -4,7 +4,7 @@ namespace CryptoExchangeTrader.Models
 {
     public class Trade
     {
-        public string CurrencyPair { get; set; }
+        public string CoinPair { get; set; }
         public DateTime Date { get; set; }
         public double Price { get; set; }
         public double Amount { get; set; }

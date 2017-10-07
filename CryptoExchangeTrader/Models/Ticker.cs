@@ -2,7 +2,7 @@
 {
     public class Ticker
     {
-        public string CurrencyPair { get; set; }
-        public string LastTradePrice { get; set; }
+        public string CoinPair { get; set; }
+        public double LastTradePrice { get; set; }
     }
 }

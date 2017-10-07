@@ -16,6 +16,8 @@ namespace CryptoExchangeTrader.Exchanges
         {
         }
 
+        //TODO: Implement methods below
+
         #region Public
 
         public override List<Balance> GetMyInvestedBalances(List<string> CurrencyPairs)
@@ -34,6 +36,21 @@ namespace CryptoExchangeTrader.Exchanges
         }
 
         public override List<Ticker> GetCurrentTickers(List<string> CurrencyPairs)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CreateTrailingStop(string currencyPair, double distance, double sellAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CreateMarketSell(string currencyPair, double sellAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CreateBuyOrder(string currencyPair, double buyAmount)
         {
             throw new NotImplementedException();
         }

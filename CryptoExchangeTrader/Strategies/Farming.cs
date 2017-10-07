@@ -18,16 +18,59 @@ namespace CryptoExchangeTrader.Stratagies
 
         public override void ExecuteStrategy()
         {
+            // Collect data
             FetchExchangeData(Exchange.ExchangeConfiguration.CoinPairs);
-            //TODO:
-            // 2. TODO: Logic to handle open trades
-            // 3. Foreach Currency Pair if last trade was a Buy
-            // 3.1 If current price is higher than last buy price + positive distance
-            // 3.1.1 Create trailing stop at positive distance
-            // 3.2 If current price is lower than last buy price + negative distance
-            // 3.2.1 Create stop order at current price
-            // 4. Foreach Currency Pair if last trade was a Sell
-            // 4.1 TODO: Logic for when last trade was a sell
+
+            // Farming logic:
+            //==========================================================
+
+            // For each open trade
+            foreach (var openTrade in OpenTrades)
+            {
+                if (openTrade.Type == TradeType.Buy)
+                {
+                    //TODO: what should happen here?
+                }
+                else
+                {
+                    //TODO: what should happen here?
+                }
+            }
+
+            // Get all coin pairs that do NOT have open orders
+            var nonOpenCoinPairs = Exchange.ExchangeConfiguration.CoinPairs.FindAll(coinPair => !OpenTrades.Contains(new Trade() { CoinPair = coinPair }));
+
+            // For each coin pair not in open orders
+            foreach (var coinPair in nonOpenCoinPairs)
+            {
+                // If last trade was a Buy
+                var lastTrade = LastTrades.Find(trade => trade.CoinPair == coinPair);
+                if (lastTrade.Type == TradeType.Buy)
+                {
+                    var positiveDistance = (lastTrade.Price / 100) * double.Parse(StrategyConfiguration.Configurations["PositivePercentage"]);
+                    var negativeDistance = (lastTrade.Price / 100) * double.Parse(StrategyConfiguration.Configurations["NegativePercentage"]);
+
+                    // If last trade price is higher than last buy price + positive distance
+                    if (Tickers.Find(ticker => ticker.CoinPair == coinPair).LastTradePrice > (lastTrade.Price + positiveDistance))
+                    {
+                        // Create trailing stop at configured TrailingStopPercent of difference
+                        var difference = (lastTrade.Price + positiveDistance) - Tickers.Find(ticker => ticker.CoinPair == coinPair).LastTradePrice;
+                        var trailingStopDistance = (difference / 100) * double.Parse(StrategyConfiguration.Configurations["TrailingStopPercent"]);
+                        Exchange.CreateTrailingStop(coinPair, trailingStopDistance, InvestedBalances.Find(balance => balance.CoinPair == coinPair).Available);
+                    }
+
+                    // If current price is lower than last buy price - negative distance                    
+                    else if (Tickers.Find(ticker => ticker.CoinPair == coinPair).LastTradePrice < (lastTrade.Price - negativeDistance))
+                        // Create market sell order to cut our losses
+                        Exchange.CreateMarketSell(coinPair, InvestedBalances.Find(balance => balance.CoinPair == coinPair).Available);
+                }
+                else
+                {
+                    // Create buy order at a percentage below last trade price (to prevent creating a taker order and paying more fee's)
+                    //TODO: complete below
+                    //Exchange.CreateBuyOrder(coinPair, );
+                }
+            }
         }
 
         /// <summary>
@@ -38,11 +81,11 @@ namespace CryptoExchangeTrader.Stratagies
         {
             // Use exchange to collect all the data
             InvestedBalances = Exchange.GetMyInvestedBalances(coins);
-            OpenTrade = Exchange.GetMyOpenTrades(coins);
-            LastTrade = Exchange.GetMyLastTrades(coins);
+            OpenTrades = Exchange.GetMyOpenTrades(coins);
+            LastTrades = Exchange.GetMyLastTrades(coins);
             Tickers = Exchange.GetCurrentTickers(coins);
         }
-        
+
         #endregion
     }
 }

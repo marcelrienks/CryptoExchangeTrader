@@ -30,7 +30,7 @@ namespace CryptoExchangeTrader.Exchanges
             {
                 result.Add(new Balance()
                 {
-                    CurrencyPair = currencyPair,
+                    CoinPair = currencyPair,
                     Total = 0.0005,
                     Available = 0.0003
                 });
@@ -51,7 +51,7 @@ namespace CryptoExchangeTrader.Exchanges
             {
                 result.Add(new Trade()
                 {
-                    CurrencyPair = currencyPair,
+                    CoinPair = currencyPair,
                     Date = DateTime.Now,
                     Price = 0.001,
                     Amount = 0.0005,
@@ -74,7 +74,7 @@ namespace CryptoExchangeTrader.Exchanges
             {
                 result.Add(new Trade()
                 {
-                    CurrencyPair = currencyPair,
+                    CoinPair = currencyPair,
                     Date = DateTime.Now,
                     Price = 0.001,
                     Amount = 0.0005,
@@ -97,12 +97,29 @@ namespace CryptoExchangeTrader.Exchanges
             {
                 result.Add(new Ticker()
                 {
-                    CurrencyPair = currencyPair,
-                    LastTradePrice = "4000"
+                    CoinPair = currencyPair,
+                    LastTradePrice = 4000
                 });
             }
 
             return result;
+        }
+
+        //TODO: the methods below should store this, so it can be read later in GetData
+
+        public override void CreateTrailingStop(string currencyPair, double distance, double sellAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CreateMarketSell(string currencyPair, double sellAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CreateBuyOrder(string currencyPair, double buyAmount)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
