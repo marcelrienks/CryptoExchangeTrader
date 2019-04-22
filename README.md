@@ -8,10 +8,6 @@ This tool will use configuration information that you specify to automate trades
 The framework and architecture for the project has been completed.
 Work still needs to be done on actually iplementing the crypto exchanges api's, and coding the bots according to a strategy of your choice.
 
-## Authors
-
-* **Marcel Rienks** - *Initial work* - [PurpleBooth](https://github.com/marcelrienks)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
