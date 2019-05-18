@@ -1,7 +1,5 @@
 # Crypto Exchange Trader Bot
-
-[![Build status](https://ci.appveyor.com/api/projects/status/tdt1ejffp8wyl8de?svg=true)](https://ci.appveyor.com/project/marcelrienks/CryptoExchangeTrader)  
-[![Build Status](https://marcelrienks.visualstudio.com/marcelrienks/_apis/build/status/marcelrienks.CryptoExchangeTrader?branchName=master)](https://marcelrienks.visualstudio.com/marcelrienks/_build/latest?definitionId=1&branchName=master)  
+[![Build Status](https://dev.azure.com/marcelrienks/CryptoExchangeTrader/_apis/build/status/marcelrienks.CryptoExchangeTrader?branchName=master)](https://dev.azure.com/marcelrienks/CryptoExchangeTrader/_build/latest?definitionId=13&branchName=master)  
 Crypto Exchange Trader is a Crypto Currency Trading bot.
 This tool will use configuration information that you specify to automate trades on supported exchanges.  
 
